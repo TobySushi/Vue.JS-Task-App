@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        
+        <!-- Import Vue.JS package and bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    </head>
+    <body>
+        <div id="app" class="column col-lg-5 mx-auto">
+
+            <!-- Header -->
+            <h1 id="header"><u>List Maker!</u></h1>
+
+            <!-- Display list elements -->
+            <ol>
+                <!-- 
+                    Here, the component listItem is placed, and runs a loop. For each iteration
+                    of the loop, an new list element is created with the correct values sent to the
+                    prop listIndex, which were defined in the index.js file.
+                -->
+                <listitem
+                v-for="item in list"
+                v-bind:list-index="item"
+                v-bind:key="item.id"
+                v-on:click.native="removeItem(item.id)"
+                ></listitem>
+            </ol>
+
+            <!-- 
+                Input Feild 
+                This input feild uses the v-model directive to send its contents back to index.js. 
+                this makes it so the entered text can be added to the list of items.
+                The event listener in the input element will invoke the method "addItem" when the input
+                is in focus and the enter key is pressed.
+            -->
+            
+            <label for="newListItem">Add Item to List</label><br>
+            <input type="text" id="newListItem" v-model="inputText" v-on:keyup.enter="addItem">
+
+        </div>
+    </body>
+
+    <!-- The main script is run AFTER the above elements so it can properly access them -->
+    <script src="index.js"></script>
+</html>

@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+#header{
+    font-family: 'Ubuntu', sans-serif;
+    color: #56785f;
+}
+
+.listElement{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15pt;
+    color: #4a4a4a;
+    padding: 2px;
+}
+
+.listElement:hover{
+    color: #f24156;
+}
+
+#app{
+    background-color: #beedca;
+    margin: 50px;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 10px solid #65e084;
+}
